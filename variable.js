@@ -4,3 +4,5 @@
         name ="Джон";
         admin=name;
         alert(admin);
+
+
