@@ -1,1 +1,3 @@
-alert( "i love JS" );
+let message;
+message= "Hello";
+alert (message);
