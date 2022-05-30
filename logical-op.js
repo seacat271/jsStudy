@@ -1,5 +1,5 @@
 let userName;
-userName=prompt("Введите логин", " ");
+userName=prompt("Введите логин", "");
 if (userName=="Admin") {
 let userLogin;
 userLogin=prompt("Введите пароль");
