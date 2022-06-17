@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for=""> Enter the number
+        <input type="number" data-input>
+    </label>
+    <button type="button" data-add>Add</button>
+    <button type="button" data-minus>Subtraction</button>
+    <button type="button" data-mul>Multiply</button>
+    <button type="button" data-reset>Reset</button>
+    <p data-output>Summ: <span>0</span></p>
+
+    <script>
+        const inputEl = document.querySelector("input[data-input]");
+        const btnAdd = document.querySelector("button[data-add");
+        const outputData = document.querySelector("p[data-output] span");
+        const btnReset = document.querySelector("button[data-reset]");
+        const btnMul = document.querySelector("button[data-mul]")
+        const btnSub = document.querySelector("button[data-minus]");
+        let total = 0;
+
+        btnAdd.addEventListener("click", function(){
+            const value = Number(inputEl.value)
+            total += value;
+            inputEl.value = "";
+            outputData.textContent = total
+        });
+
+        btnMul.addEventListener("click", function(){
+            const value = Number(inputEl.value);
+            total *=value;
+            inputEl.value = "";
+            outputData.textContent = total;
+        })
+
+        btnSub.addEventListener("click", function(){
+            const value = Number(inputEl.value)
+            total -= value;
+            inputEl.value = "";
+            outputData.textContent = total
+        })
+
+        btnReset.addEventListener("click", function(){
+            total = 0;
+            outputData.textContent = total
+        })
+
+
+    </script>
+</body>
+</html>

@@ -3,17 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=label, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 <body>
-    <script src="./array.js"> 
-    
-    </script>
+    <h1>Игра "Угадай число"</h1>
+    <div class="container">
+        <label for="">
+            Введите число от 1 до 20
+            <input type="number" data-input>
+        </label>
+        <button type="button" data-enter>Ввести</button>
+        <p data-text></p>
+    </div>
+    <script>
+        const btnAdd = document.querySelector("button[data-enter]");
+        const inputEl = document.querySelector("input[data-input]");
+        const textResult = document.querySelector("p[data-text]");
+        
+        const max = 20;
+        const min = 1;
+        function getRandom (min, max) {
+            return (Math.round(Math.random() * (max - min) + min))
+        };
+        let num = getRandom (min, max);
 
-    
-   <!-- <script>
-       alert ("I must love JS");
-   </>  -->
+        btnAdd.addEventListener("click", function (){
+            let value = Number(inputEl.value);
+          
+            if (value > num) {
+                textResult.textContent = "Меньше. Вводи еще раз"
+            } else if (value < num) {
+                textResult.textContent = "Больше. Вводи еще раз"
+            } else if (value = num) {
+                textResult.textContent = "УГАДАЛ. Поздравляю!"
+            }
+            inputEl.value = ""
+        })
+
+        
+        // btnAdd.addEventListener("click", function(){
+        //     const value = Number(inputEl.value);
+        //     if (value)
+        // });
+
+    </script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+body {
+    background-color: aqua;
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+.container {
+
+}
+
+input {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    
+    
+    
+}
+
+label {
+    display: block;
+  text-align: center;
+       margin-bottom: 20px;
+       font-size: 20px;
+       
+}
+
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: blue;
+    border-radius: 4px;
+font-size: 20px;
+border-color: transparent;
+color: aliceblue;
+}
+
+p {
+text-align: center;
+color: tomato;
+font-size: 30px;
+}
+
