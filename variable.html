@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    
     <script>
 
         // alert ("i like JavaScript")
@@ -217,7 +218,149 @@
 //     () => alert("Вы отменили выполнение.")
 // )
 
+// // Создайте пустой объект user.
+// let user = {};
+// // Добавьте свойство name со значением John.
+// user.name = "John";
+// // Добавьте свойство surname со значением Smith.
+// user.surname = "Smith";
+// // Измените значение свойства name на Pete.
+// user.name = "Pete";
+// // Удалите свойство name из объекта.
+// delete user.name;
+// alert (user.surname)
 
-    </script>
-</body>
-</html>
+// Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false.
+// Должно работать так:
+// let schedule = {};
+// alert( isEmpty(schedule) ); // true
+// schedule["8:30"] = "get up";
+// alert( isEmpty(schedule) ); // false
+
+// function isEmpty (obj) {
+//     for (let key in obj) {
+//          return false;
+//         } 
+//      return true;
+//     }
+
+// let max = {
+//     name : "John"
+// }
+// alert (isEmpty (max))
+
+
+// let salaries = {
+//   John: 1100,
+//   Ann: 1160,
+//   Pete: 1130
+// }
+// let sum = 0;
+// for (let key in salaries) {
+//     sum += salaries[key] 
+//    } alert (sum)
+
+// let menu = {
+//   width: 200,
+//   height: 300,
+//   title: "My menu"
+// };
+// function multiplyNumeric (obj) {
+//     for (let key in obj) {
+//         if ( typeof obj[key] == "number") {
+//         obj[key] *= 2}
+    
+//     } 
+// }
+// multiplyNumeric(menu);
+// alert (menu.width);
+// alert( menu.height)
+
+
+// Создайте объект calculator (калькулятор) с тремя методами:
+
+// read() (читать) запрашивает два значения и сохраняет их как свойства объекта.
+// sum() (суммировать) возвращает сумму сохранённых значений.
+// mul() (умножить) перемножает сохранённые значения и возвращает результат.
+
+
+
+// let calculator = {
+//     read : function () {
+//      this.num1 = +prompt ("enter number1", " ");
+//      this.num2 = +prompt ("enter number2", " ");
+// },
+// sum : function () {
+//     return  (this.num1 + this.num2)
+// },
+// mul : function () {
+//     return this.num1 * this.num2 
+// },
+// }
+// calculator.read();
+// // alert (calculator.num2);
+// alert( calculator.sum() );
+// alert( calculator.mul() );
+
+// Это ladder (лестница) – объект, который позволяет подниматься вверх и спускаться:
+// Теперь, если нам нужно сделать несколько последовательных вызовов, мы можем выполнить это так:
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
+// Измените код методов up, down и showStep таким образом, чтобы их вызов можно было сделать по цепочке, например так:
+
+// ladder.up().up().down().showStep(); // 1
+
+// let ladder = {
+//   step: 0,
+//   up() {
+//     ladder.step++;
+//   },
+//   down() {
+//     ladder.step--;
+//   },
+//   showStep: function() { // показывает текущую ступеньку
+//     alert( ladder.step );
+//   }
+// };
+
+
+// Создайте функцию-конструктор Calculator, который создаёт объекты с тремя методами:
+// read() запрашивает два значения при помощи prompt и сохраняет их значение в свойствах объекта.
+// sum() возвращает сумму введённых свойств.
+// mul() возвращает произведение введённых свойств.
+// Например:
+
+// let calculator = new Calculator();
+// calculator.read();
+
+// alert( "Sum=" + calculator.sum() );
+// alert( "Mul=" + calculator.mul() );
+
+// function Accumulator (begin) {
+//     this.value = begin;
+//     this.read = function()  {this.value += +prompt ("enter number?", " "); return this;}
+
+// };
+// let page = new Accumulator(1);
+// page.read().read().read()
+// alert(page.value)
+
+// Создайте скрипт, который запрашивает ввод двух чисел (используйте prompt) и после показывает их сумму.
+
+// let a = +prompt ("Enter first number");
+// let b = +prompt ("Enter second number");
+// let sum = a + b;
+// alert (sum)
+
+// Напишите функцию random(min, max), которая генерирует случайное число с плавающей точкой от min до max (но не включая max).
+
+// function randomIntenger (min, max) {
+//  return (Math.random (max - min) + min).fixedTo ()
+// }
+
+// console.log (randomIntenger (1, 5))
+ </script>
+// </body>
+// </html>

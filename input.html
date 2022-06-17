@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<label for=""> 
+    Number
+    <input type="number" data-value>
+</label>
+<button type="button" data-reset>Reset</button>
+<button type="button" data-add>Add</button>
+<p data-output>Summ: <span>0</span></p>
+
+
+<script>
+    const btnAdd = document.querySelector ("button[data-add]");
+    const valueInput = document.querySelector ("input[data-value]");
+    let total = 0;
+    const outputEl = document.querySelector ("p[data-output] span");
+    const btnReset = document.querySelector ("button[data-reset]");
+
+
+    btnAdd.addEventListener("click", function () {
+        const value = Number(valueInput.value);
+        total += value;
+        outputEl.textContent = total;
+        valueInput.value = ""
+     
+ });
+ btnReset.addEventListener("click", function(){
+    total = 0;
+    outputEl.textContent = total;
+  } )
+  
+
+
+</script>
+
+
+</body>
+</html>
