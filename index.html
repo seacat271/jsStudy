@@ -200,19 +200,77 @@
       //   }
       //   console.log(transform(init));
       //THIRD Task
+      const MAX = 100;
+      const MIN = 0;
+      count = 0;
       function getRandomCoord(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         let coord = () => Math.floor(Math.random() * (max - min + 1) + min);
         return { x: coord(), y: coord(), z: coord() };
       }
-      const randomPoint = getRandomCoord(0, 100);
-      console.log(randomPoint);
+      const randomPoint = getRandomCoord(MIN, MAX);
+
       function findDistance(customPoint, randomPoint) {
+        count++;
+        console.log(customPoint);
         const { x, y, z } = randomPoint;
-        const { x1, y1, z1 } = customPoint;
-        const distance = x - x1 + y - y1 + z - z1;
+        const { x: x1, y: y1, z: z1 } = customPoint;
+        return Math.sqrt(
+          Math.pow(x - x1, 2) + Math.pow(y - y1, 2) + Math.pow(z - z1, 2)
+        );
       }
+
+      function findPoint(customPoint, randomPoint) {
+        let searchPoint = {};
+        for (let coord of Object.keys(randomPoint)) {
+          console.log(coord);
+
+          searchPoint = { ...searchPoint, ...findDimension(coord) };
+          console.log(searchPoint);
+        }
+
+        function findDimension(coord) {
+          console.log(randomPoint[coord]);
+          let max = MAX;
+          let min = MIN;
+          let maxPointDistance;
+          let minPointDistance;
+
+          const compareDistance = () => {
+            if (min === max) return;
+
+            maxPointDistance = findDistance(
+              { ...customPoint, [coord]: max },
+              randomPoint
+            );
+            minPointDistance = findDistance(
+              { ...customPoint, [coord]: min },
+              randomPoint
+            );
+            if (minPointDistance < maxPointDistance) {
+              console.log("min");
+              max = Math.floor((min + max) / 2);
+              console.log(max);
+              console.log(min);
+              compareDistance();
+            } else if (maxPointDistance < minPointDistance) {
+              console.log("max");
+              min = Math.ceil((min + max) / 2);
+              console.log(max);
+              console.log(min);
+              compareDistance();
+            } else if (maxPointDistance === minPointDistance) {
+              max = min = (max + min) / 2;
+              return;
+            }
+            return { [coord]: min };
+          };
+          return compareDistance();
+        }
+      }
+      findPoint({ x: 10, y: 15, z: 70 }, { x: 26, y: 47, z: 67 });
+      console.log(count);
     </script>
   </body>
 </html>
