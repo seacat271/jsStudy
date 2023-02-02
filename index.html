@@ -206,6 +206,13 @@
         let coord = () => Math.floor(Math.random() * (max - min + 1) + min);
         return { x: coord(), y: coord(), z: coord() };
       }
+      const randomPoint = getRandomCoord(0, 100);
+      console.log(randomPoint);
+      function findDistance(customPoint, randomPoint) {
+        const { x, y, z } = randomPoint;
+        const { x1, y1, z1 } = customPoint;
+        const distance = x - x1 + y - y1 + z - z1;
+      }
     </script>
   </body>
 </html>
