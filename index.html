@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=label, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta name="viewport" content="width=label, initial-scale=1.0" /> -->
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Игра "Угадай число"</h1>
+  </head>
+  <body>
+    <!-- <h1>Игра "Угадай число"</h1>
     <div class="container">
         <label for="">
             Введите число от 1 до 20
@@ -16,38 +16,196 @@
         </label>
         <button type="button" data-enter>Ввести</button>
         <p data-text></p>
-    </div>
+    </div> -->
     <script>
-        const btnAdd = document.querySelector("button[data-enter]");
-        const inputEl = document.querySelector("input[data-input]");
-        const textResult = document.querySelector("p[data-text]");
-        
-        const max = 20;
-        const min = 1;
-        function getRandom (min, max) {
-            return (Math.round(Math.random() * (max - min) + min))
-        };
-        let num = getRandom (min, max);
+      // const btnAdd = document.querySelector("button[data-enter]");
+      // const inputEl = document.querySelector("input[data-input]");
+      // const textResult = document.querySelector("p[data-text]");
 
-        btnAdd.addEventListener("click", function (){
-            let value = Number(inputEl.value);
-          
-            if (value > num) {
-                textResult.textContent = "Меньше. Вводи еще раз"
-            } else if (value < num) {
-                textResult.textContent = "Больше. Вводи еще раз"
-            } else if (value = num) {
-                textResult.textContent = "УГАДАЛ. Поздравляю!"
-            }
-            inputEl.value = ""
-        })
+      // const max = 20;
+      // const min = 1;
+      // function getRandom (min, max) {
+      //     return (Math.round(Math.random() * (max - min) + min))
+      // };
+      // let num = getRandom (min, max);
 
-        
-        // btnAdd.addEventListener("click", function(){
-        //     const value = Number(inputEl.value);
-        //     if (value)
-        // });
+      // btnAdd.addEventListener("click", function (){
+      //     let value = Number(inputEl.value);
 
+      //     if (value > num) {
+      //         textResult.textContent = "Меньше. Вводи еще раз"
+      //     } else if (value < num) {
+      //         textResult.textContent = "Больше. Вводи еще раз"
+      //     } else if (value = num) {
+      //         textResult.textContent = "УГАДАЛ. Поздравляю!"
+      //     }
+      //     inputEl.value = ""
+      // })
+
+      // btnAdd.addEventListener("click", function(){
+      //     const value = Number(inputEl.value);
+      //     if (value)
+      // });
+
+      // const query = 15
+      // let level = 0;
+      // for (let i=0;; i++ ) {
+      //     level = i;
+      //     if ((i*(i+1))/2 >= query) break
+
+      // }
+
+      // console.log(level)
+
+      //     function order(words){
+
+      //     const array = words.split(" ");
+
+      //     const sentence = [];
+      //      for(let i = 1; i <= array.length; i++) {
+
+      //           array.forEach(item => {
+      //          if (item.includes(`${i}`)) {sentence.push(item)}
+
+      //       })
+      //     }
+
+      //     return sentence.join(" ")
+      //   }
+
+      // order("is2 Thi1s T4est 3a")
+
+      // function arrayDiff(a, b) {
+
+      //   let array = [];
+      //   for (let i = 0; i <= a.length; i++ ) {
+      //     return !b.includes(a[i]) ? array.push(a[i]) : array;
+      //   }
+      //   return array;
+      // }
+
+      // arrayDiff([1,2], [1])
+
+      //   function nbDig(n, d) {
+      //     let count = 0;
+
+      //     for (let i = 0; i < n; i++) {
+      //       let number = i * i;
+      //       number
+      //         .toString()
+      //         .split("")
+      //         .forEach((item) => {
+      //           if (+item === d) count++;
+      //         });
+      //     }
+
+      //     return count;
+      //   }
+      //   nbDig(13, 1);
+      //FIRST TASK
+      //   const answer = { unit: "ft", value: 1.64 };
+      //   const init = { distance: { unit: "yd", value: 0.5 }, convert_to: "ft" };
+      //   const update = { km: 1000000, yd: 914.4, mm: 1 };
+      //   let measurement = { m: 1000, ft: 304.8, cm: 10, in: 25.4 };
+      //   function checkUpdate(data) {
+      //     return Object.values(data).every((item) => typeof item === "number");
+      //   }
+
+      //   function convert(data) {
+      //     if (checkUpdate(data)) {
+      //       measurement = { ...measurement, ...data };
+      //       console.log("Units of measurement is update");
+      //       return;
+      //     } else {
+      //       console.log(measurement);
+      //       const { distance, convert_to: unitNext } = data;
+      //       let { unit, value } = distance;
+
+      //       value = value * measurement[unit];
+      //       value = value / measurement[unitNext];
+      //       if (isNaN(value)) return "There is no such unit of measurement";
+      //       return { unit: unitNext, value };
+      //     }
+      //   }
+      //   convert(update);
+      //   console.log(convert(init));
+
+      //SECOND TASK
+      //   const init = {
+      //     data: [
+      //       {
+      //         user: "mike@mail.com",
+      //         rating: 20,
+      //         disabled: false,
+      //         isOnline: true,
+      //       },
+      //       {
+      //         user: "greg@mail.com",
+      //         rating: 14,
+      //         disabled: false,
+      //         isOnline: true,
+      //       },
+      //       { user: "john@mail.com", rating: 25, disabled: true, isOnline: true },
+      //       { user: "adam@mail.com", rating: 0, disabled: true, isOnline: false },
+      //       { user: "shon@mail.com", rating: 10, disabled: true, isOnline: true },
+      //       {
+      //         user: "adamek@mail.com",
+      //         rating: 11,
+      //         disabled: false,
+      //         isOnline: false,
+      //       },
+      //       { user: "aram@mail.com", rating: 11, disabled: true, isOnline: true },
+      //     ],
+      //     condition: {
+      //       include: [{ isOnline: true }],
+      //       sort_by: ["rating"],
+      //       exclude: [{ disabled: true }],
+      //     },
+      //   };
+
+      //   const rules = {
+      //     exclude(data, condition) {
+      //       condition.forEach((example) => {
+      //         const [variant] = Object.entries(example);
+      //         data = data.filter((item) => item[variant[0]] !== variant[1]);
+      //       });
+      //       return data;
+      //     },
+      //     include(data, condition) {
+      //       condition.forEach((example) => {
+      //         const [variant] = Object.entries(example);
+      //         data = data.filter((item) => item[variant[0]] === variant[1]);
+      //       });
+      //       return data;
+      //     },
+      //     sort_by(data, condition) {
+      //       condition.forEach((example) => {
+      //         data = data.sort((a, b) => {
+      //           if (a[example] > b[example]) return 1;
+      //           if (a[example] < b[example]) return -1;
+      //           return 0;
+      //         });
+      //       });
+      //       return data;
+      //     },
+      //   };
+
+      //   function transform(json) {
+      //     let { data, condition } = json;
+      //     const conditions = Object.keys(condition);
+      //     for (let cond of conditions) {
+      //       data = rules[cond](data, condition[cond]);
+      //     }
+      //     return { result: data };
+      //   }
+      //   console.log(transform(init));
+      //THIRD Task
+      function getRandomCoord(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        let coord = () => Math.floor(Math.random() * (max - min + 1) + min);
+        return { x: coord(), y: coord(), z: coord() };
+      }
     </script>
-</body>
+  </body>
 </html>

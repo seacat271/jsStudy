@@ -689,9 +689,40 @@
 //     }
 
 // console.log((arrPin.length === 4 || arrPin.length === 6) && (!isNaN(arrPin.reduce((multy, item) => multy * item))))
-let num = 5;
-let sheep = "";
-for(let i = 1; i <= num; i += 1) {
-  sheep += `${i}...sheep` 
+// let num = 5;
+// let sheep = "";
+// for(let i = 1; i <= num; i += 1) {
+//   sheep += `${i}...sheep` 
+// }
+// console.log(sheep)
+// const sentence = "userName";
+// let newSentence = [];
+// const arr = [...sentence].map((item, index) => {
+//     if (index === 0) {
+//         newSentence.push(item.toUpperCase());
+       
+//     } else item.toLowerCase() === item ? newSentence.push(item) : newSentence.push(" ", item.toLowerCase())
+// })
+
+
+
+// function transformText (string) {
+//     let newSentence = [];
+//     [...string].map((item, index) => {
+//         if (index === 0) {
+//             newSentence.push(item.toUpperCase());
+           
+//         } else item.toLowerCase() === item ? newSentence.push(item) : newSentence.push(" ", item.toLowerCase())
+//     }) 
+//     return newSentence.join("")
+// }
+
+// console.log(transformText(sentence))
+
+
+const string = "1q2w3e"
+const query = "1q2w3"
+function checkedString (srting1, string2) {
+    return srting1.slice(0, string2.length) === string2
+    
 }
-console.log(sheep)
