@@ -282,7 +282,7 @@
           id: 200,
           question: "Are you married?",
           answer: ["Yes", "No"],
-          rout: [201, 202],
+          rout: [201, 201],
         },
         {
           id: 201,
@@ -306,43 +306,43 @@
           id: 300,
           question: "How old are you?",
           answer: ["More than 12 years", "Less than 12 years"],
-          rout: [310, 301],
+          rout: [999, 999],
         },
-        {
-          id: 301,
-          question: "Are you like cartoons?",
-          answer: ["Yes", "No"],
-          rout: [302, 302],
-        },
-        {
-          id: 302,
-          question: "Are you like ice-cream?",
-          answer: ["Yes", "No"],
-          rout: [400, 400],
-        },
-        {
-          id: 310,
-          question: "How often you watch TV?",
-          answer: ["Not often", "Often"],
-          rout: [311, 312],
-        },
-        {
-          id: 311,
-          question: "Do you go to the cinema",
-          answer: ["Yes", "No"],
-          rout: [313, 314],
-        },
-        {
-          id: 313,
-          question: "Do you watch Avatar-2 in cinema?",
-          answer: ["Yes", "No"],
-          rout: [315, 316],
-        },
+        // {
+        //   id: 301,
+        //   question: "Are you like cartoons?",
+        //   answer: ["Yes", "No"],
+        //   rout: [302, 302],
+        // },
+        // {
+        //   id: 302,
+        //   question: "Are you like ice-cream?",
+        //   answer: ["Yes", "No"],
+        //   rout: [400, 400],
+        // },
+        // {
+        //   id: 310,
+        //   question: "How often you watch TV?",
+        //   answer: ["Not often", "Often"],
+        //   rout: [311, 999],
+        // },
+        // {
+        //   id: 311,
+        //   question: "Do you go to the cinema",
+        //   answer: ["Yes", "No"],
+        //   rout: [313, 999],
+        // },
+        // {
+        //   id: 313,
+        //   question: "Do you watch Avatar-2 in cinema?",
+        //   answer: ["Yes", "No"],
+        //   rout: [999, 999],
+        // },
         {
           id: 400,
           question: "Have you a pet?",
           answer: ["Yes", "No"],
-          rout: [401, 410],
+          rout: [401, 401],
         },
         {
           id: 401,
@@ -360,34 +360,70 @@
           id: 403,
           question: "You have a cat?",
           answer: ["Yes", "No"],
-          rout: [999, 404],
-        },
-        {
-          id: 410,
-          question: "You have a parrot?",
-          answer: ["Yes", "No"],
           rout: [999, 999],
         },
+        // {
+        //   id: 410,
+        //   question: "You have a parrot?",
+        //   answer: ["Yes", "No"],
+        //   rout: [999, 999],
+        // },
       ];
-      function testing(data) {
-        const result = [];
-        function recordResult() {}
 
+      function testing(data) {
+        const resultGen = [];
+        let initResult = [];
+        function recordResult() {}
+        let countRout = 0;
         const firstNumber = 100;
-        function rout(beginning) {
+        function rout(beginning, initResult = []) {
+          let result = [];
           function question(id) {
-            return data.find((item) => {
+            const queue = data.find((item) => {
               return item.id === id;
             });
+
+            if (queue.rout[0] === 999 && queue.rout[1] === 999) {
+              result.push({
+                [queue.question]: `${queue.answer[0]}/${queue.answer[1]}`,
+              });
+
+              countRout++;
+              return;
+            }
+
+            if (queue.rout[0] === queue.rout[1]) {
+              result.push({
+                [queue.question]: `${queue.answer[0]}/${queue.answer[1]}`,
+              });
+
+              question(queue.rout[0]);
+            }
+            if (queue.rout[0] !== 999 && queue.rout[0] !== queue.rout[1]) {
+              resultGen.push([
+                ...initResult,
+                { [queue.question]: `${queue.answer[0]}` },
+                ...rout(queue.rout[0]),
+              ]);
+
+              resultGen.push([
+                ...initResult,
+                { [queue.question]: `${queue.answer[1]}` },
+                ...rout(queue.rout[1]),
+              ]);
+            }
           }
-          const queue = question(beginning);
-          if (queue.rout[0] !== 999) {
-            result.push({ [queue.question]: queue.answer[0] });
-          }
+          question(beginning);
+
+          console.log(result);
+          console.log(initResult);
+          return result;
         }
+
         rout(firstNumber);
+        return resultGen;
       }
-      testing(example);
+      console.log(testing(example));
     </script>
   </body>
 </html>
