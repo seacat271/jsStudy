@@ -200,75 +200,75 @@
       //   }
       //   console.log(transform(init));
       //THIRD Task
-      const MAX = 100;
-      const MIN = 0;
-      count = 0;
-      searchArray = [];
-      function getRandomCoord(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        let coord = () => Math.floor(Math.random() * (max - min + 1) + min);
-        return { x: coord(), y: coord(), z: coord() };
-      }
-      const randomPoint = getRandomCoord(MIN, MAX);
+      // const MAX = 100;
+      // const MIN = 0;
+      // count = 0;
+      // searchArray = [];
+      // function getRandomCoord(min, max) {
+      //   min = Math.ceil(min);
+      //   max = Math.floor(max);
+      //   let coord = () => Math.floor(Math.random() * (max - min + 1) + min);
+      //   return { x: coord(), y: coord(), z: coord() };
+      // }
+      // const randomPoint = getRandomCoord(MIN, MAX);
 
-      function findDistance(customPoint, randomPoint) {
-        count++;
-        const { x, y, z } = randomPoint;
-        const { x: x1, y: y1, z: z1 } = customPoint;
-        searchArray.push(customPoint);
-        return Math.sqrt(
-          Math.pow(x - x1, 2) + Math.pow(y - y1, 2) + Math.pow(z - z1, 2)
-        );
-      }
+      // function findDistance(customPoint, randomPoint) {
+      //   count++;
+      //   const { x, y, z } = randomPoint;
+      //   const { x: x1, y: y1, z: z1 } = customPoint;
+      //   searchArray.push(customPoint);
+      //   return Math.sqrt(
+      //     Math.pow(x - x1, 2) + Math.pow(y - y1, 2) + Math.pow(z - z1, 2)
+      //   );
+      // }
 
-      function findPoint(customPoint, randomPoint) {
-        let searchPoint = {};
-        for (let coord of Object.keys(randomPoint)) {
-          searchPoint = { ...searchPoint, ...findDimension(coord) };
-        }
-        function findDimension(coord) {
-          let max = MAX;
-          let min = MIN;
-          const key = (MAX + MIN) / 2 <= customPoint[coord] ? "min" : "max";
-          let pointDistance = {
-            [key === "max" ? "min" : "max"]: findDistance(
-              { ...customPoint, [coord]: key === "max" ? min : max },
-              randomPoint
-            ),
-          };
+      // function findPoint(customPoint, randomPoint) {
+      //   let searchPoint = {};
+      //   for (let coord of Object.keys(randomPoint)) {
+      //     searchPoint = { ...searchPoint, ...findDimension(coord) };
+      //   }
+      //   function findDimension(coord) {
+      //     let max = MAX;
+      //     let min = MIN;
+      //     const key = (MAX + MIN) / 2 <= customPoint[coord] ? "min" : "max";
+      //     let pointDistance = {
+      //       [key === "max" ? "min" : "max"]: findDistance(
+      //         { ...customPoint, [coord]: key === "max" ? min : max },
+      //         randomPoint
+      //       ),
+      //     };
 
-          const compareDistance = (key) => {
-            if (min === max) return;
-            pointDistance[key] = findDistance(
-              { ...customPoint, [coord]: key === "max" ? max : min },
-              randomPoint
-            );
+      //     const compareDistance = (key) => {
+      //       if (min === max) return;
+      //       pointDistance[key] = findDistance(
+      //         { ...customPoint, [coord]: key === "max" ? max : min },
+      //         randomPoint
+      //       );
 
-            if (pointDistance.min < pointDistance.max) {
-              max = Math.floor((min + max) / 2);
-              compareDistance("max");
-            } else if (pointDistance.max < pointDistance.min) {
-              min = Math.ceil((min + max) / 2);
-              compareDistance("min");
-            } else if (pointDistance.max === pointDistance.min) {
-              max = min = (max + min) / 2;
-              return;
-            }
-            return { [coord]: min };
-          };
+      //       if (pointDistance.min < pointDistance.max) {
+      //         max = Math.floor((min + max) / 2);
+      //         compareDistance("max");
+      //       } else if (pointDistance.max < pointDistance.min) {
+      //         min = Math.ceil((min + max) / 2);
+      //         compareDistance("min");
+      //       } else if (pointDistance.max === pointDistance.min) {
+      //         max = min = (max + min) / 2;
+      //         return;
+      //       }
+      //       return { [coord]: min };
+      //     };
 
-          return compareDistance(key);
-        }
-        return {
-          result: {
-            random_point: randomPoint,
-            search_points: searchArray,
-            calls: count,
-          },
-        };
-      }
-      console.log(findPoint({ x: 1, y: 70, z: 4 }, randomPoint));
+      //     return compareDistance(key);
+      //   }
+      //   return {
+      //     result: {
+      //       random_point: randomPoint,
+      //       search_points: searchArray,
+      //       calls: count,
+      //     },
+      //   };
+      // }
+      // console.log(findPoint({ x: 1, y: 70, z: 4 }, randomPoint));
 
       // TASK FORTH
       // const example = [
@@ -424,6 +424,11 @@
       //   return resultGen;
       // }
       // console.log(testing(example));
+      const a = "Privet";
+
+
+console.log(a)
+
     </script>
   </body>
 </html>
