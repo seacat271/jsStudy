@@ -424,9 +424,16 @@
       //   return resultGen;
       // }
       // console.log(testing(example));
-      const a = "Privet";
+      const str = "How can mirrors be real if our eyes aren't real";
+        function toJadenCase (str) {
+      return str.split(' ').map(element => {
+      return element.slice(0, 1).toUpperCase() === element.slice(0, 1) ? element : element.slice(0, 1).toUpperCase() + element.slice(1)
+   
+     }).join(' ');
+ 
+        }
 
-
+let a = toJadenCase(str)
 console.log(a)
 
     </script>
