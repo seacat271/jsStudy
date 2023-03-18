@@ -438,7 +438,10 @@
 
 // console.log({str, a, b})
 // console.trace()
-console.log((20).toString(2))
+function findNextSquare(sq) {
+  var root = Math.sqrt(sq);
+  return root - Math.floor(root) === 0 ? Math.pow(root+1, 2) : -1 ;
+}
 
 
     </script>
