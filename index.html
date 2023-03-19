@@ -438,10 +438,26 @@
 
 // console.log({str, a, b})
 // console.trace()
-function findNextSquare(sq) {
-  var root = Math.sqrt(sq);
-  return root - Math.floor(root) === 0 ? Math.pow(root+1, 2) : -1 ;
+// function findNextSquare(sq) {
+//   var root = Math.sqrt(sq);
+//   return root - Math.floor(root) === 0 ? Math.pow(root+1, 2) : -1 ;
+// }
+
+function positiveSum(arr) {
+  let sum = 0;
+  console.log(arr)
+  for (let num of arr) {
+    console.log(num)
+    num >= 0 ? sum += num : sum
+    console.log(sum)
+  }
+  return sum
 }
+
+const result = positiveSum([1,2,3,4,5]);
+console.log(result)
+
+
 
 
     </script>
