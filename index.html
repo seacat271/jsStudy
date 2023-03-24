@@ -457,16 +457,29 @@
 // const result = positiveSum([1,2,3,4,5]);
 // console.log(result)
 
-function sortByLength (array) {
- return array.sort((a, b) => {
-   return a.length - b.length
- })
-};
+// function sortByLength (array) {
+//  return array.sort((a, b) => {
+//    return a.length - b.length
+//  })
+// };
 
-const result = sortByLength(["Beg", "Life", "I", "To"])
+// const result = sortByLength(["Beg", "Life", "I", "To"])
 
+// console.log(result)
+
+function domainName(url){
+  const checkPoints = ["www.", "://"];
+  for (let check of checkPoints) {
+    let index = url.indexOf(check)
+    if (index === -1) continue
+    return url.slice(index + check.length).split(".")[0]
+  }
+
+}
+const str = "http://google.com";
+const str1 = "http://www.zombie-bites.com"
+const result = domainName(str1)
 console.log(result)
-
     </script>
   </body>
 </html>
