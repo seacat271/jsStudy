@@ -10,6 +10,10 @@
     <span>0</span>
     <button>-</button>
 
+    <button>+</button>
+    <span>0</span>
+    <button>-</button>
+
   </head>
   <body>
     <!-- <h1>Игра "Угадай число"</h1>
@@ -484,11 +488,22 @@
 // const str1 = "http://www.zombie-bites.com"
 // const result = domainName(str1)
 // console.log(result)
-const CounterPlugin = function (config ={}) {
-  console.log(config)
+const CounterPlugin = function ({initialValue = 0, step = 1} ={}) {
+  this._value = initialValue;
+  this._step = step;
+
+}
+CounterPlugin.prototype.increment = function () {
+  this._value += this._step
+}
+CounterPlugin.prototype.decrement = function () {
+  this._value -= this._step
 }
 
-const counter = new CounterPlugin({})
+const counter = new CounterPlugin()
+counter.increment()
+counter.increment()
+console.log(counter)
 
     </script>
   </body>
