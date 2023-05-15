@@ -6,6 +6,10 @@
     <!-- <meta name="viewport" content="width=label, initial-scale=1.0" /> -->
     <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
+    <button>+</button>
+    <span>0</span>
+    <button>-</button>
+
   </head>
   <body>
     <!-- <h1>Игра "Угадай число"</h1>
@@ -467,19 +471,25 @@
 
 // console.log(result)
 
-function domainName(url){
-  const checkPoints = ["www.", "://"];
-  for (let check of checkPoints) {
-    let index = url.indexOf(check)
-    if (index === -1) continue
-    return url.slice(index + check.length).split(".")[0]
-  }
+// function domainName(url){
+//   const checkPoints = ["www.", "://"];
+//   for (let check of checkPoints) {
+//     let index = url.indexOf(check)
+//     if (index === -1) continue
+//     return url.slice(index + check.length).split(".")[0]
+//   }
 
+// }
+// const str = "http://google.com";
+// const str1 = "http://www.zombie-bites.com"
+// const result = domainName(str1)
+// console.log(result)
+const CounterPlugin = function (config ={}) {
+  console.log(config)
 }
-const str = "http://google.com";
-const str1 = "http://www.zombie-bites.com"
-const result = domainName(str1)
-console.log(result)
+
+const counter = new CounterPlugin({})
+
     </script>
   </body>
 </html>
