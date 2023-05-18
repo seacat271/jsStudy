@@ -500,6 +500,7 @@
         this._step = step;
         this._refs = this._getRefs(rootSelector);
         this._bindEvents();
+        this._updateValueUI();
       };
       CounterPlugin.prototype.increment = function () {
         this._value += this._step;
@@ -519,28 +520,26 @@
       CounterPlugin.prototype._bindEvents = function () {
         this._refs.incrementBtn.addEventListener("click", () => {
           this.increment();
-          this.updateValueUI();
+          this._updateValueUI();
         });
         this._refs.decrementBtn.addEventListener("click", () => {
           this.decrement();
-          this.updateValueUI();
+          this._updateValueUI();
         });
       };
-      CounterPlugin.prototype.updateValueUI = function () {
+      CounterPlugin.prototype._updateValueUI = function () {
         this._refs.value.textContent = this._value;
       };
-
-      const counter1 = new CounterPlugin({
+      new CounterPlugin({
         rootSelector: "#counter-1",
         step: 10,
       });
-      console.log(counter1);
-      const counter2 = new CounterPlugin({
+
+      new CounterPlugin({
         rootSelector: "#counter-2",
         step: 2,
         initialValue: 55,
       });
-      console.log(counter2);
     </script>
   </body>
 </html>
